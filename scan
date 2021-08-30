@@ -1,6 +1,6 @@
 #!/bin/bash
 
-clear
+clear; rm csrf 2> /dev/null
 
 if [ -f OK.txt ]; then :; else echo -e "$(printf '=%.0s' {1..19})\n IPs CloudFlare|ON\n$(printf '=%.0s' {1..19})" >> OK.txt; fi
 
