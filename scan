@@ -14,7 +14,7 @@ path=$(curl -s https://subdomainfinder.c99.nl/js/nginx_v37728122119.js | cut -d 
   path3=$(curl -s https://subdomainfinder.c99.nl$path | grep "$path2.........." -o | cut -d ':' -f2 | cut -d ',' -f1)
 quant=$(($(grep "&" -o <<< "$data3" | wc -l)+1))
 csrf=$(cut -d '&' -f$quant <<< "$data3" | cut -d '=' -f1)
- csrf2=$(curl -s https://raw.githubusercontent.com/M4tiass/subdomainCDN/0/csrf)
+ csrf2=$(<csrf)
 ok=$(eval "sed \"s/$csrf/$csrf2/\" <<< \"$data3\"")
 
 echo -e "\e[01;37m Coloque o HOST para verificação\e[0m"
