@@ -1,5 +1,5 @@
 # subdomainCDN
-Esta ferramenta irá verificar se o HOST/subdomínios utiliza CDN(CloudFlare)
+<h1>Esta ferramenta irá verificar se o HOST/subdomínios utiliza CDN(CloudFlare)</h1>
 
 <code>git clone https://github.com/M4tiass/subdomainCDN && cd subdomainCDN && chmod +x scan && ./scan</code>
 
