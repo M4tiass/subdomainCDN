@@ -3,7 +3,7 @@
 while :; do
 clear; rm csrf 2> /dev/null
 
-if [ -f OK.txt ]; then :; else echo -e "$(printf '=%.0s' {1..19})\n IPs CloudFlare|ON\n$(printf '=%.0s' {1..19})" >> OK.txt; fi
+if [ -f OK.txt ]; then :; else echo -e "$(printf '=%.0s' {1..19})\n IPs CloudFlare|ON\n$(printf '=%.0s' {1..19})" >> OK.txt; > OK2.txt; fi
 
 echo -e "\e[01;33mATENÇÃO FERRAMENTA APENAS PARA PROFISSIONAIS \e[0m☠\n\n\e[02mEssa ferramenta irá verificar se o\nHOST utiliza proxy/CDN(CloudFlare)\nutilize com INTERNET!\n\n*HOST não é seu domínio barboleta\n*Ex: vivo.com.br ou tigo.com.sv etc\e[0m\n"
 
@@ -43,8 +43,10 @@ for i in $(seq "$linhas"); do
            on)
                a=$(($(sed -n "$i"p <<< "$ok2")-4))
                b=$(sed -n "$a"p <<< "$OK" | tr -d ' ')
-               echo -e "\e[07;01;32;40m CloudFlare|ON \e[0m - \e[01;37m$b \e[0m"; sleep 2
+               echo -e "\e[07;01;32;40m CloudFlare|ON \e[0m - \e[01;37m$b \e[0m"; sleep 1.5
                echo -e "$b" >> OK.txt
+               rep=$(grep "$b" OK2.txt -c)
+                case $rep in 1);; 0) echo "$b" >> OK2.txt; esac
                ;;
           off)
                a2=$(($(sed -n "$i"p <<< "$ok2")-4))
@@ -54,11 +56,19 @@ for i in $(seq "$linhas"); do
                       *) echo -e "\e[01;37m CloudFlare|OFF\e[0m\e[02m - $b2 \e[0m"
                  esac
      esac
-done; case $eita in 1);; *) echo -e "\e[01;37m HOST utilizado - $HOST\e[0m\n"; echo -e "$HOST" >> OK.txt; echo $(printf '=%.0s' {1..19}) >> OK.txt; sort -u OK.txt | grep -E '[0-9].[0-9].[0-9].{1,9}' > OK2.txt; esac
-  echo -e "\e[01;37m Deseja fazer uma nova busca?\n\e[0m    [1] \e[0m\e[01;37mSIM\e[0m | [2] \e[0m\e[01;37mNÃO\e[0m"
+done
+ case $eita in 
+      1);;
+      *) echo -e "\e[01;37m HOST utilizado - $HOST\e[0m\n"
+         echo -e "$HOST" >> OK.txt; echo $(printf '=%.0s' {1..19}) >> OK.txt
+ esac
+echo -e "\e[01;37m Deseja fazer uma nova busca?\n\e[0m    [1] \e[0m\e[01;37mSIM\e[0m | [2] \e[0m\e[01;37mNÃO\e[0m"
+ while :; do
   read -n1 -p ": " OPC
    case $OPC in
-        1);;
-        2) break
+        1) break;;
+        2) exit;;
+        *)
    esac
+  done
 done
