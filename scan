@@ -10,6 +10,7 @@ echo -e "\e[01;33mATENÇÃO FERRAMENTA APENAS PARA PROFISSIONAIS \e[0m☠\n\n\e[
 data=$(curl -s https://subdomainfinder.c99.nl/index.php --compressed | pup 'input' | grep hidden | cut -d '"' -f4,6)
  data2=$(($(wc -l <<< "$data")-2))
   data3=$(head -n "$data2" <<< "$data" | tr -s "\n" "&" | tr -s '"' '=' | sed -r 's/.$//g')
+   data4=$(tail -1 <<< "$data" | cut -d '"' -f2)
 
 path=$(curl -s https://subdomainfinder.c99.nl/js/nginx_v37728122119.js)
  path2=$(cut -d '"' -f2 <<< "$path")
@@ -24,7 +25,7 @@ ok=$(eval "sed \"s/$csrf/$csrf2/\" <<< \"$data3\"")
 echo -e "\e[01;37m Coloque o HOST para verificação\e[0m"
 read -p "Host: " HOST
 
-OKK=$(curl -s https://subdomainfinder.c99.nl/index.php -H "content-type: application/x-www-form-urlencoded" -H "origin: https://subdomainfinder.c99.nl" -H "referer: https://subdomainfinder.c99.nl/index.php" -H "user-agent: Android" -d "$ok&jn=JS+aan%2C+T+aangeroepen%2C+CSRF+aangepast&domain=$HOST&lol-stop-reverse-engineering-my-source-and-buy-an-api-key=60ade41f4d4e5a01562f2baf8e8058b9038af54d&scan_subdomains=" --compressed)
+OKK=$(curl -s https://subdomainfinder.c99.nl/index.php -H "content-type: application/x-www-form-urlencoded" -H "origin: https://subdomainfinder.c99.nl" -H "referer: https://subdomainfinder.c99.nl/index.php" -H "user-agent: Android" -d "$ok&jn=JS+aan%2C+T+aangeroepen%2C+CSRF+aangepast&domain=$HOST&lol-stop-reverse-engineering-my-source-and-buy-an-api-key=$data4&scan_subdomains=" --compressed)
 OK=$(pup 'tbody' <<< "$OKK")
 
 teste=$(grep "CSRF token invalid or expired" -c <<< "$OKK")
