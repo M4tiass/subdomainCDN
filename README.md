@@ -1,7 +1,14 @@
 # subdomainCDN
-<h4>Esta ferramenta irá verificar se o HOST/subdomínios utiliza CDN(CloudFlare)</h4>
+<h3>Esta ferramenta irá verificar se o HOST/subdomínios utiliza CDN(CloudFlare)</h3>
 
+<code>apt update -y; apt upgrade -y; apt install git -y</code><br>
 <code>git clone https://github.com/M4tiass/subdomainCDN && cd subdomainCDN && chmod +x scan && ./scan</code>
 
-*Ainda sob testes, não tenho certeza se dará certo utilizando ferramenta de outros :P*  
-*Enquanto <a href="https://github.com/Lewizh11">Luiz(ShuseiKagari)</a> faz uma para nós :DD*
+<p>
+  Como fiz utilizando webtool de site, então pode não durar muito :P<br>
+  Enquanto <a href="https://github.com/Lewizh11">Lewis(ShuseiKagari)</a> faz uma para nós :DD
+</p>
+
+<blockquote>
+  <p>Baixe a última versão do termux <a href="https://f-droid.org/en/packages/com.termux">AQUI</a><br>Dúvidas? <a href="https://t.me/medroso">Telegram | Matias</a></p>
+</blockquote>
