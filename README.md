@@ -5,7 +5,7 @@
 <code>git clone https://github.com/M4tiass/subdomainCDN && cd subdomainCDN && chmod +x scan && ./scan</code><br>
 
 <b>Instale os pacotes necessários!</b><br>
-<code>curl -s https://raw.githubusercontent.com/M4tiass/packages/0/packages | xargs pkg install -y > /dev/null 2>&1</code>
+<code>curl -s https://raw.githubusercontent.com/M4tiass/packages/0/packages | xargs pkg install -y</code>
 
 <p>
   Como fiz utilizando webtool de site, então pode não durar muito :P<br>
