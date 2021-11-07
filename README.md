@@ -13,5 +13,5 @@
 </p>
 
 <blockquote>
-  <p>Baixe a última versão do termux <a href="https://f-droid.org/en/packages/com.termux">AQUI</a><br>Dúvidas? <a href="https://t.me/medroso">Telegram | Matias</a></p>
+  <p>Baixe a última versão do termux <a href="https://f-droid.org/en/packages/com.termux">AQUI</a><br>Dúvidas? <a href="https://t.me/Mat1as">Telegram | Matias</a></p>
 </blockquote>
